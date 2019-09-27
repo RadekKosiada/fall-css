@@ -2,15 +2,16 @@ body {
     /* background-color: black; */
 }
 
-body{
-    margin:0;
-    padding:0;
-  }
+body {
+    margin: 0;
+    padding: 0;
+}
 
-  /* will place confetti in fron of the content of the whole page */
-  #confetti{
-    position:absolute;
-    left:0;
-    top:0;
-    z-index:1;
-  }
+/* will place confetti in fron of the content of the whole page */
+
+#confetti {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
