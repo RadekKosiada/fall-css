@@ -19,24 +19,33 @@ function randomColor() {
   let colKey = Math.floor(Math.random() * Object.keys(colorObj).length);
 
   // using ES6 Object.values to get a random value from our colorObj.
-  return Object.values(colorObj)[colKey];  
+  return Object.values(colorObj)[colKey];
 };
 
 function update() {
   for (let i = pieces.length - 1; i >= 0; i--) {
-    // the for loop iterates through the pieces array, starting from the one before last; 
+    // the for loop iterates through the pieces array backwards; 
     // runs under the condition that i equals or larger than 0; i decreases by 1, each time it iterates.  
 
-    let p = pieces[i]; 
+    let p = pieces[i];
+    //if the piece reaches the lower border of the canvas, 
+    // if the position of the piece is bigger than height of canvas
     if (p.y > canvas.height) {
-      //if the piece reaches the lower border of the canvas, 
+
       // it's getting removed (*1* element) from the array on the place *i*. 
-      pieces.splice(i, 1); 
+      pieces.splice(i, 1);
       continue; //after it removes the element, the iteration and continues from there on.
     }
 
+    //another check;
+    // if the number of pieces is smaller than it's defined above;
+    // piece() function is called and a new piece is added to the array;
     while (pieces.length < numberOfPieces) {
-      pieces.push(new piece(Math.random() * canvas.width, -20)); // adding new pieces to the array: pieces; with x & y
+
+      // CREATING OF NEW PIECES
+      // Math.random() * canvas.width = x position
+      // -20 = y position; a bit higher so it looks more realistic
+      pieces.push(new piece(Math.random() * canvas.width, -20) ); // adding new pieces to the array: pieces; with x & y
     }
 
     p.y += p.gravity; //position of a piece on the y axe is being changed by as much as defined in gravity.
@@ -53,14 +62,14 @@ function draw() {
     ctx.fillStyle = p.color;
     // it will translate the canvas to the center of the specific component;
     // its position + half of its size. 
-    ctx.translate(p.x + p.size / 2, p.y + p.size / 2); 
+    ctx.translate(p.x + p.size / 2, p.y + p.size / 2);
     ctx.rotate(p.rotation); //we set rotation in the piece function; 
 
     //// square pieces
     // this draws a new element: it is placed at 0, 0 of the translated canvas, 
     // thus *-p.size* https://www.screencast.com/t/DSKpt7NxH; https://www.w3schools.com/graphics/game_rotation.asp
     ctx.stroke();
-    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size); 
+    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
 
     ////circle pieces
     // ctx.beginPath();
