@@ -17,11 +17,9 @@ let colorObj = {
 // picking a random color from the object
 function randomColor() {
   let colKey = Math.floor((Math.random() * Object.keys(colorObj).length));
-  // using ES6 Object.entries to get a random property from our colorObj.
-  // We need only value, the rgb color, thus [1].
-  return Object.entries(colorObj)[colKey][1];  
-  
-  
+
+  // using ES6 Object.values to get a random value from our colorObj.
+  return Object.values(colorObj)[colKey];  
 };
 
 function update() {
@@ -82,7 +80,7 @@ function piece(x, y) {
   this.size = Math.random() * (8 - 15) + 15; //no lower or equal 8, lower or not equal 12;
   //the gravity can be in a similar range to size of the piece. 15 would be to fast. 
   // addtionally check *gravitySpeed*.
-  this.gravity = (Math.random() * 0.5 + 0.75) * 1  
+  this.gravity = (Math.random() * 0.5 + 0.75) * 1  // arbitrally decided on that;
   this.rotation = (Math.PI * 2) * Math.random(); //how much we rotate the element;
   this.rotationSpeed = (Math.PI * 2) * Math.random() * 0.010; //how fast we rotate it;
   this.color = randomColor();
