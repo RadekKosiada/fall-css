@@ -79,7 +79,7 @@ function draw() {
 function piece(x, y) {
   this.x = x; //this refers to global object this === window; the variable remains global
   this.y = y;
-  this.size = (Math.random() * 0.5 + 0.75) * 15;
+  this.size = Math.random() * (8 - 15) + 15; //no lower or equal 8, lower or not equal 12;
   //the gravity can be in a similar range to size of the piece. 15 would be to fast. 
   // addtionally check *gravitySpeed*.
   this.gravity = (Math.random() * 0.5 + 0.75) * 1  
