@@ -16,7 +16,7 @@ let colorObj = {
 }
 // picking a random color from the object
 function randomColor() {
-  let colKey = Math.floor((Math.random() * Object.keys(colorObj).length));
+  let colKey = Math.floor(Math.random() * Object.keys(colorObj).length);
 
   // using ES6 Object.values to get a random value from our colorObj.
   return Object.values(colorObj)[colKey];  
