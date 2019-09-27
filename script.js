@@ -4,14 +4,14 @@ canvas.height = window.innerHeight;
 
 let ctx = canvas.getContext("2d");
 let pieces = []; //will hold pieces of confetti
-const numberOfPieces = 250;
+const numberOfPieces = 350;
 
 // colors from our palette used in the puzzle game
 let colorObj = {
-  red: 'rgba(255,0,0, 0.5)',
-  yellow: 'rgba(255,242,0, 0.7)',
-  orange: 'rgba(255,106,0, 0.3)',
-  blue: 'rgba(22,94,247, 0.4)',
+  red: 'rgba(255,0,0, 0.9)',
+  yellow: 'rgba(255,242,0, 0.9)',
+  orange: 'rgba(255,106,0, 0.6)',
+  blue: 'rgba(22,94,247, 0.7)',
   green: 'rgba(0, 128, 0, 0.8)',
 }
 // picking a random color from the object
@@ -49,7 +49,7 @@ function draw () {
       ctx.rotate(p.rotation); //we set rotation in the piece function; 
   
       ctx.fillRect(-p.size / 2, -p.size/2, p.size, p.size); // this draws a new element: it is placed at 0, 0 of the translated canvas, thus *-p.size* https://www.screencast.com/t/DSKpt7NxH; https://www.w3schools.com/graphics/game_rotation.asp
-  
+      
       ctx.restore(); // this will stop from transforming other elements. 
     })
     requestAnimationFrame(draw); //to update the animation on screen
@@ -60,7 +60,7 @@ function draw () {
   function piece (x, y) {
   this.x = x; //this refers to global object this === window; the variable remains global
   this.y = y;
-  this.size = (Math.random() * 0.5+0.75)* 15;
+  this.size = (Math.random() * 0.5 + 0.75)* 15;
   this.gravity = (Math.random() * 0.5+0.75)* 1  //the gravity can be in a similar range to size of the piece. 15 would be to fast. addtionally check *gravitySpeed*.
   this.rotation = (Math.PI * 2) * Math.random(); //how much we rotate the element;
   this.rotationSpeed = (Math.PI * 2) * Math.random() * 0.010; //how fast we rotate it;
@@ -69,9 +69,14 @@ function draw () {
   }
   
   while (pieces.length < numberOfPieces) {
+    //calling piece(x, y) function
     pieces.push(new piece(Math.random() * canvas.width, Math.random() * canvas.height)); // adding new pieces to the array: pieces; with x & y
   }
   // both functions will call themselves
   update(); 
   draw();
 
+
+  ctx.beginPath();
+ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+ctx.stroke();
