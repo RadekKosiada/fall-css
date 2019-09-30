@@ -8,10 +8,3 @@ body {
 }
 
 /* will place confetti in fron of the content of the whole page */
-
-#confetti {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
-}

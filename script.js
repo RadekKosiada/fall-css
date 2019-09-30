@@ -1,5 +1,19 @@
+let button = document.getElementById("test-button");
+
+button.addEventListener("click", function() {
+  console.log("got it!")
+})
+
+//creating canvas
 let canvas = document.createElement('canvas');
-canvas.setAttribute("id", "canvas");
+// adding id
+canvas.setAttribute("id", "confetti");
+// adding style: position absolute, so it covers the other content;
+canvas.style.position = "absolute";
+canvas.style.top = "0";
+canvas.style.left = "0";
+canvas.style.zIndex = -1;
+
 var body = document.getElementsByTagName("body")[0];
 body.appendChild(canvas);
 
@@ -96,8 +110,8 @@ function piece(x, y) {
   this.y = y;
   this.size = Math.random() * (8 - 15) + 15; //no lower or equal 8, lower or not equal 12;
   //the gravity can be in a similar range to size of the piece. 15 would be to fast. 
-  // addtionally check *gravitySpeed*.
-  this.gravity = (Math.random() * 0.5 + 0.75) * 1  // arbitrally decided on that;
+  // additionally check *gravitySpeed*.
+  this.gravity = (Math.random() * 0.5 + 0.75) * 1  // arbitrary decided on that;
   this.rotation = (Math.PI * 2) * Math.random(); //how much we rotate the element;
   this.rotationSpeed = (Math.PI * 2) * Math.random() * 0.010; //how fast we rotate it;
   this.color = randomColor();
