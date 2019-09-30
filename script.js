@@ -9,10 +9,11 @@ let canvas = document.createElement('canvas');
 // adding id
 canvas.setAttribute("id", "confetti");
 // adding style: position absolute, so it covers the other content;
-canvas.style.position = "absolute";
+canvas.style.position = "fixed";
 canvas.style.top = "0";
 canvas.style.left = "0";
 canvas.style.zIndex = -1;
+canvas.style.overflow = "hidden";
 
 var body = document.getElementsByTagName("body")[0];
 body.appendChild(canvas);
