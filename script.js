@@ -1,4 +1,8 @@
-let canvas = document.getElementById('confetti');
+let canvas = document.createElement('canvas');
+canvas.setAttribute("id", "canvas");
+var body = document.getElementsByTagName("body")[0];
+body.appendChild(canvas);
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -16,6 +20,7 @@ let colorObj = {
 }
 // picking a random color from the object
 function randomColor() {
+  console.log('randomColor() called')
   let colKey = Math.floor(Math.random() * Object.keys(colorObj).length);
 
   // using ES6 Object.values to get a random value from our colorObj.
@@ -23,6 +28,7 @@ function randomColor() {
 };
 
 function update() {
+  // console.log('update() called')
   for (let i = pieces.length - 1; i >= 0; i--) {
     // the for loop iterates through the pieces array backwards; 
     // runs under the condition that i equals or larger than 0; i decreases by 1, each time it iterates.  
@@ -55,6 +61,7 @@ function update() {
 }
 
 function draw() {
+  // console.log('draw() called')
   ctx.clearRect(0, 0, canvas.width, canvas.height); //this will prevent that the pieces will stay on the canvas, snake-like. 
 
   pieces.forEach(function (p) { //iterates through all elements in the array pieces
@@ -84,6 +91,7 @@ function draw() {
 //this function will define how the confetti will be like
 //it will store all important features
 function piece(x, y) {
+  // console.log('piece() called');
   this.x = x; //this refers to global object this === window; the variable remains global
   this.y = y;
   this.size = Math.random() * (8 - 15) + 15; //no lower or equal 8, lower or not equal 12;
