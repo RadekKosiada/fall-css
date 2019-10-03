@@ -8,11 +8,11 @@ for (var i = 0; i < numberOfSquares; i++) {
   //creating elements
   var square = document.createElement("div");
   square.setAttribute("class", "square");
-  
   //style
   square.style.width = "10px";
   square.style.height = "10px";
-  square.style.backgroundColor = "purple";
+  // adding random background color
+  square.style.backgroundColor = colors[randomNumber(numberOfColors)];
   square.style.position = "fixed";
   square.style.zIndex = "-1";
   square.style.top = 100 + 10*i + "px";
@@ -25,7 +25,6 @@ for (var i = 0; i < numberOfSquares; i++) {
 
 console.log(document.getElementsByClassName("square"));
 
-// random color
 // random position 
 // movement
 // loop? or setInterval? or CSS animation!!!
@@ -33,3 +32,6 @@ console.log(document.getElementsByClassName("square"));
 // 7 animacji ruchu
 // i dodac je randomly do squares;
 
+function randomNumber(num) {
+  return Math.floor(Math.random() * Math.floor(num));
+}
