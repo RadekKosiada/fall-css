@@ -1,6 +1,7 @@
 var distanceBetweenSquares = 20;
 var squareSize = 10;
-// number of squares depends on the width of window (more mobile-friendly/responsive approach)
+// number of squares depends on the width of window (more mobile-friendly/responsive approach);
+// their density will be always the same, regardless the size of the screen;
 var numberOfSquares = Math.round(window.innerWidth/distanceBetweenSquares);
 console.log(numberOfSquares);
 var colors = ["yellow", "blue", "red", "orange", "green"];
@@ -19,7 +20,7 @@ for (var i = 0; i < numberOfSquares; i++) {
   square.style.position = "fixed";
   square.style.zIndex = "-1";
   square.style.top = 0 + "px";
-  // setting left position for each square; each will 
+  // setting left position for each square with even distance between them
   square.style.left = (window.innerWidth / numberOfSquares) * i + "px";
   // appending to body
   document.body.appendChild(square);
