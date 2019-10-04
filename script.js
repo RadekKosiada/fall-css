@@ -1,3 +1,5 @@
+// imediately invoked function expression not to pollute the global scope
+(function () {
   var distanceBetweenSquares = 20;
   var squareSize = 10;
   // number of squares depends on the width of window (more mobile-friendly/responsive approach);
@@ -59,3 +61,5 @@
   function randomNumber(min, max) {
     return Math.random() * (max - min) + min;
   };
+
+})();
