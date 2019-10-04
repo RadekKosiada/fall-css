@@ -27,7 +27,7 @@ function createSquares() {
     square.style.backgroundColor = colors[randomInteger(numberOfColors)];
     square.style.position = "fixed";
     square.style.zIndex = "-1";
-    square.style.top = "0px";
+    square.style.top =  randomInteger(window.innerHeight) + "px";
     // setting left position for each square with even distance between them
     square.style.left = (window.innerWidth / numberOfSquares) * i + "px";
     // setting animation
