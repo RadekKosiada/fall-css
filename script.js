@@ -2,7 +2,7 @@ var distanceBetweenSquares = 20;
 var squareSize = 10;
 // number of squares depends on the width of window (more mobile-friendly/responsive approach);
 // their density will be always the same, regardless the size of the screen;
-var numberOfSquares = 4*Math.round(window.innerWidth/distanceBetweenSquares);
+var numberOfSquares = Math.round(window.innerWidth/distanceBetweenSquares);
 console.log(numberOfSquares);
 
 var colors = ["yellow", "blue", "red", "orange", "green"];
@@ -28,24 +28,16 @@ function createSquares() {
     square.style.position = "fixed";
     square.style.zIndex = "-1";
     square.style.top =  randomInteger(window.innerHeight) + "px";
-    // square.style.top = "0px";
     // setting left position for each square with even distance between them
     square.style.left = (window.innerWidth / numberOfSquares) * i + "px";
     // setting 'rotation' animation
-
-    square.style.transform = "translate(100px, 200px);"
-
     square.style.animationName = "rotation";
     square.style.animationTimingFunction = "linear";
     square.style.animationIterationCount ="infinite";
 
-    // square.style.animation = "rotation 2s linear infinite reverse, falling 2s linear infinite reverse";
-
-    // square.style.animation = "rotation" + randomNumber(minRotationSpeed, maxRotationSpeed) + "s linear infinite" + animationDirection[randomInteger(animationDirectionNumber)];
-
     // direction will be randomly picked from predefined array;
     square.style.animationDirection = "normal";
-    // duration will determine speed of rotation
+    // duration will determine speed of rotation;
     square.style.animationDuration = randomNumber(minRotationSpeed, maxRotationSpeed) + "s"; 
 
     // appending to body
