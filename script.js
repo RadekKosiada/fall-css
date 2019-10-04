@@ -28,15 +28,26 @@ function createSquares() {
     square.style.position = "fixed";
     square.style.zIndex = "-1";
     square.style.top =  randomInteger(window.innerHeight) + "px";
+    // square.style.top = "0px";
     // setting left position for each square with even distance between them
     square.style.left = (window.innerWidth / numberOfSquares) * i + "px";
-    // setting animation
+    // setting 'rotation' animation
+
+    square.style.transform = "translate(100px, 200px);"
+
     square.style.animationName = "rotation";
     square.style.animationTimingFunction = "linear";
     square.style.animationIterationCount ="infinite";
-    // direction will randomly picked from predefined array;
-    square.style.animationDirection = animationDirection[randomInteger(animationDirectionNumber)];
+
+    // square.style.animation = "rotation 2s linear infinite reverse, falling 2s linear infinite reverse";
+
+    // square.style.animation = "rotation" + randomNumber(minRotationSpeed, maxRotationSpeed) + "s linear infinite" + animationDirection[randomInteger(animationDirectionNumber)];
+
+    // direction will be randomly picked from predefined array;
+    square.style.animationDirection = "normal";
+    // duration will determine speed of rotation
     square.style.animationDuration = randomNumber(minRotationSpeed, maxRotationSpeed) + "s"; 
+
     // appending to body
     document.body.appendChild(square);
   }
@@ -59,6 +70,16 @@ createSquares();
 // });
 
 // console.log(num)
+
+// var allSquares = document.getElementsByClassName("square");
+
+// Array.from(allSquares).forEach(function(elem) {
+  
+
+//   elem.style.animationName = "falling";
+//   elem.style.animationTimingFunction = "linear";
+//   elem.style.animationIterationCount ="infinite";
+// });
 
 
 // supporting functions
