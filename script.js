@@ -48,32 +48,6 @@ function createSquares() {
 createSquares();
 //setInterval(createSquares, 2000);
 
-// random position
-// movement
-// loop? or setInterval? or CSS animation!!!
-// 3 animacje rotating
-// 7 animacji ruchu
-// i dodac je randomly do squares;
-
-// add window resize event
-// var num = window.addEventListener("resize", function () {
-//   console.log(window.innerWidth)
-//   return window.innerWidth;
-// });
-
-// console.log(num)
-
-// var allSquares = document.getElementsByClassName("square");
-
-// Array.from(allSquares).forEach(function(elem) {
-  
-
-//   elem.style.animationName = "falling";
-//   elem.style.animationTimingFunction = "linear";
-//   elem.style.animationIterationCount ="infinite";
-// });
-
-
 // supporting functions
 
 // returns a random integer from 0 to num-1;
