@@ -1,5 +1,6 @@
 // imediately invoked function expression not to pollute the global scope
 (function () {
+
   var distanceBetweenSquares = 20;
   var squareSize = 10;
   // number of squares depends on the width of window (more mobile-friendly/responsive approach);
@@ -17,6 +18,16 @@
   var minRotationSpeed = 0.25;
 
   function createSquares() {
+
+    // grabbing existing 'squares' and removing them from body
+    // (otherwise infinite number of squares will be added to DOM eventually)
+    var existingSquares = document.getElementsByClassName("square");
+    if (existingSquares.length) {
+      Array.from(existingSquares).forEach(function (element) {
+        document.body.removeChild(element);
+      });
+    }
+
     for (var i = 0; i < numberOfSquares; i++) {
       //creating elements
       var square = document.createElement("div");
@@ -47,8 +58,8 @@
     }
   }
 
-  createSquares();
-  //setInterval(createSquares, 2000);
+  //call the function in intervals so the konfetti pattern will change
+  setInterval(createSquares, 3000);
 
   // supporting functions
 

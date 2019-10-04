@@ -6,7 +6,6 @@
 @keyframes rotation {
     100% {
         transform: translate(0%, 100px) rotate(360deg);
-        opacity: 0.2;
         /* -webkit-transform: rotate(360deg);
         -moz-transform: rotate(360deg);
         -ms-transform: rotate(360deg); */
@@ -16,5 +15,5 @@
 p {
     border-radius: 15px;
     background-color: green;
-    opacity: 0.5;
+    /* opacity: 0.5; */
 }
