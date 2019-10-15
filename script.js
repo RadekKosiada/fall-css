@@ -5,20 +5,20 @@
   var squareSize = 10;
   // number of squares depends on the width of window (more mobile-friendly/responsive approach);
   // their density will be always the same, regardless the size of the screen;
-  var numberOfSquares = Math.round(window.innerWidth / distanceBetweenSquares);
+  var numberOfSquares = 2*Math.round(window.innerWidth / distanceBetweenSquares);
   console.log(numberOfSquares);
 
-  var colors = ["yellow", "blue", "red", "orange", "green"];
+  var colors = ["#ff8557", "#ffc245", "#fff060", "#616161"];
   var numberOfColors = colors.length;
 
   var animationDirection = ["normal", "reverse"];
   var animationDirectionNumber = animationDirection.length;
 
   var maxRotationSpeed = 2.0;
-  var minRotationSpeed = 0.25;
+  var minRotationSpeed = 0.75;
 
   function createSquares() {
-    
+
     // grabbing existing 'squares' and removing them from body
     // (otherwise infinite number of squares will be added to DOM eventually)
     var existingSquares = document.getElementsByClassName("square");
@@ -59,8 +59,8 @@
   }
 
   //call the function in intervals so the konfetti pattern will change
-  setInterval(createSquares, 1000);
-  // createSquares();
+  // setInterval(createSquares, 1000);
+  createSquares();
 
   // supporting functions
 
