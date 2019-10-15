@@ -17,6 +17,7 @@
   var maxRotationSpeed = 2.0;
   var minRotationSpeed = 0.75;
 
+  // FUNCTION TO CREATE SQAURES
   function createSquares() {
 
     // grabbing existing 'squares' and removing them from body
@@ -56,14 +57,26 @@
       // appending to body
       document.body.appendChild(square);
     }
-
-    
-
   }
 
-  //call the function in intervals so the konfetti pattern will change
-  // setInterval(createSquares, 1000);
-  createSquares();
+  // FUNCTION TO DELETE SQUARES
+  function deleteSquare() {
+    var squares = document.getElementsByClassName("square");
+
+    Array.from(squares).forEach(function(square) {
+      document.body.removeChild(square);
+    })
+  }
+
+  // This function will check if url contains 'Homepage' or 'home' or '550' and will call createSquares() only if it does;
+  $(document).ready(function() {
+    if (window.location.href.indexOf("5500") > -1 || window.location.href.indexOf("Homepage") > -1 ||  window.location.href.indexOf("home") > -1) {
+      createSquares();
+    } 
+  });
+
+  // after 5 seconds deleteSquare() will be called;
+  setTimeout(deleteSquare, 5000);
 
   // supporting functions
 
