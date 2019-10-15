@@ -4,8 +4,38 @@
 
 
 @keyframes rotation {
+    0% {
+        transform: translate(0%, 0px) rotate(0deg);
+        opacity: 0;
+        /* -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg); */
+    } 
+    25% {
+        transform: translate(0%, 50px) rotate(90deg);
+        opacity: 0.5;
+        /* -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg); */
+    } 
+    50% {
+        transform: translate(0%, 100px) rotate(180deg);
+        opacity: 1;
+        /* -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg); */
+    } 
+
+    75% {
+        transform: translate(0%, 150px) rotate(270deg);
+        opacity: 0.5;
+        /* -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg); */
+    } 
     100% {
-        transform: translate(0%, 100px) rotate(360deg);
+        transform: translate(0%, 200px) rotate(360deg);
+        opacity: 0;
         /* -webkit-transform: rotate(360deg);
         -moz-transform: rotate(360deg);
         -ms-transform: rotate(360deg); */

@@ -14,11 +14,11 @@
   var animationDirection = ["normal", "reverse"];
   var animationDirectionNumber = animationDirection.length;
 
-  var maxRotationSpeed = 1.5;
+  var maxRotationSpeed = 2.0;
   var minRotationSpeed = 0.25;
 
   function createSquares() {
-
+    
     // grabbing existing 'squares' and removing them from body
     // (otherwise infinite number of squares will be added to DOM eventually)
     var existingSquares = document.getElementsByClassName("square");
@@ -39,7 +39,7 @@
       // adding random background color
       square.style.backgroundColor = colors[randomInteger(numberOfColors)];
       square.style.position = "fixed";
-      square.style.zIndex = "-1";
+      square.style.zIndex = "1";
       square.style.top = randomInteger(window.innerHeight) + "px";
       // setting left position for each square with even distance between them
       square.style.left = (window.innerWidth / numberOfSquares) * i + "px";
@@ -59,7 +59,8 @@
   }
 
   //call the function in intervals so the konfetti pattern will change
-  setInterval(createSquares, 3000);
+  setInterval(createSquares, 1000);
+  // createSquares();
 
   // supporting functions
 
