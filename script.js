@@ -5,7 +5,7 @@
   var squareSize = 10;
   // number of squares depends on the width of window (more mobile-friendly/responsive approach);
   // their density will be always the same, regardless the size of the screen;
-  var numberOfSquares = 2*Math.round(window.innerWidth / distanceBetweenSquares);
+  var numberOfSquares = Math.round(window.innerWidth / distanceBetweenSquares);
   console.log(numberOfSquares);
 
   var colors = ["#ff8557", "#ffc245", "#fff060", "#616161"];
@@ -56,6 +56,9 @@
       // appending to body
       document.body.appendChild(square);
     }
+
+    
+
   }
 
   //call the function in intervals so the konfetti pattern will change
@@ -73,5 +76,8 @@
   function randomNumber(min, max) {
     return Math.random() * (max - min) + min;
   };
+
+
+  
 
 })();
