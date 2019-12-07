@@ -1,22 +1,25 @@
-// imediately invoked function expression not to pollute the global scope
+  // imediately invoked function expression not to pollute the global scope
 (function () {
+  var counter = 0;
   var distanceBetweenSquares = 20;
-  var squareSize = 10;
+  var squareSize = 7;
   // number of squares depends on the width of window (more mobile-friendly/responsive approach);
   // their density will be always the same, regardless the size of the screen;
   var numberOfSquares = Math.round(window.innerWidth / distanceBetweenSquares);
   console.log(numberOfSquares);
 
-  var colors = ["yellow", "blue", "red", "orange", "green"];
-  var numberOfColors = colors.length;
+  //var colors = ["yellow"];
+  //var numberOfColors = colors.length;
 
   var animationDirection = ["normal", "reverse"];
   var animationDirectionNumber = animationDirection.length;
 
-  var maxRotationSpeed = 1.5;
-  var minRotationSpeed = 0.25;
+  var maxRotationSpeed = 1.5
+  var minRotationSpeed = 0.5;
 
-  function createSquares() {
+  var timer = setInterval(function() {
+    counter++;
+    console.log(counter);
     for (var i = 0; i < numberOfSquares; i++) {
       //creating elements
       var square = document.createElement("div");
@@ -26,9 +29,10 @@
       square.style.width = squareSize + "px";
       square.style.height = square.style.width;
       // adding random background color
-      square.style.backgroundColor = colors[randomInteger(numberOfColors)];
+      square.style.backgroundColor = "white";
+      square.style.borderRadius = "15px";
       square.style.position = "fixed";
-      square.style.zIndex = "-1";
+      square.style.zIndex = "1";
       square.style.top = randomInteger(window.innerHeight) + "px";
       // setting left position for each square with even distance between them
       square.style.left = (window.innerWidth / numberOfSquares) * i + "px";
@@ -45,10 +49,11 @@
       // appending to body
       document.body.appendChild(square);
     }
-  }
+    if (i > 2) clearInterval(timer);
+  }, 1000);
 
-  createSquares();
-  //setInterval(createSquares, 2000);
+
+
 
   // supporting functions
 
